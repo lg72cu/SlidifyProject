@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Predicting member turnout for Oregon Badminton Academy (OBA)</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Predicting member turnout for Oregon Badminton Academy (OBA)">
+  <meta name="author" content="Lina Gao">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Predicting member turnout for Oregon Badminton Academy (OBA)</h1>
+    <h2>Helping the gym run more efficiently</h2>
+    <p>Lina Gao<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Background</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>OBA is a gym soon to be opened in the Portland area. The owners are currently designing the facility. They want to know what capacity they should prepare for.</p>
+
+<p>Suppose OBA has 300 members, each of which has equal likelihood of going to OBA on a specific day (this is a very strong assumption). We assume the likelihood is 2/7 (each member goes to OBA twice a week, then on any day of the week, the probablity is 2/7. We are assuming each day of the week has equal chance.)</p>
+
+<p>Here we designed an application to help the oweners of OBA to decide how to prepare their facility to run efficiently.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>How many people will show up each day?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Again, suppose OBA has 300 members, any number of members could show up each day. The number of people who will show up follow a binomial distribution, with the probability for each outcome shown below.</p>
+
+<p><img src="assets/fig/unnamed-chunk-1-1.png" alt="plot of chunk unnamed-chunk-1"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>How should we prepare our facility?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>We don&#39;t want to under-prepare our facility, because we don&#39;t want members to complain; We don&#39;t want to over-prepare either, because it is a waste of resources. We estimate the maxiumal number of people who will show up 95% the times.</p>
+
+<pre><code class="r">CI=qbinom(0.95, size=300, prob=2/7)
+</code></pre>
+
+<p>It turns out although OBA has 300 members, 95% of the time, at most 99 will show up. </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>The application</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>we designed an application to help the oweners of OBA to decide how to prepare their facility to run efficiently.When ou input the total number of members OBA has, the application will give an estimation of the maximum number of people who will show up on any given day 95% of the time, given each of the members has equal likelihood of going to OBA on a specific day (2/7).</p>
+
+<p>The applciation is located at:</p>
+
+<p><a href="https://linagao.shinyapps.io/turnout/">https://linagao.shinyapps.io/turnout/</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Background'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='How many people will show up each day?'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='How should we prepare our facility?'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='The application'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
